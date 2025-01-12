@@ -26,3 +26,34 @@ Installation:
     Configure MySQL for the database.
     Clone this repository and import it into Eclipse.
     Run the application on Apache Tomcat Server.
+
+Here the information of database:
+
+CREATE DATABASE quiz;
+USE quiz;
+
+CREATE TABLE student (
+    sid VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100),
+    password VARCHAR(100)
+);
+
+CREATE TABLE teacher (
+    tid VARCHAR(50) PRIMARY KEY,
+    name VARCHAR(100),
+    password VARCHAR(100),
+    subject VARCHAR(100)
+);
+
+CREATE TABLE testattempt (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    sid VARCHAR(50),
+    name VARCHAR(100),
+    tid VARCHAR(50),
+    status VARCHAR(10),
+    result VARCHAR(10),
+    FOREIGN KEY (sid) REFERENCES student(sid),
+    FOREIGN KEY (tid) REFERENCES teacher(tid)
+);
+
+
